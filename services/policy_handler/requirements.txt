@@ -1,0 +1,2 @@
+# No third-party runtime dependencies: boto3/botocore ship built into the
+# Lambda python3.12 managed runtime, so nothing needs to be packaged here.

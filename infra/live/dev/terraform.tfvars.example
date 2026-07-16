@@ -1,0 +1,16 @@
+# Copy to terraform.tfvars and fill in real values before applying.
+# terraform.tfvars is gitignored -- do not commit real callback URLs/emails
+# if they're considered sensitive for your org.
+
+aws_region  = "us-east-1"
+environment = "dev"
+
+# Verify this against the current Bedrock model catalog for aws_region --
+# model IDs are region-specific and Anthropic/AWS ship new versions
+# regularly. This is a cross-region inference profile ID (routes across
+# multiple underlying regions).
+foundation_model_id = "us.anthropic.claude-sonnet-4-5-20250929-v1:0"
+
+alarm_email           = "you@example.com"
+cors_allowed_origins  = ["http://localhost:3000"]
+cognito_callback_urls = ["http://localhost:3000/callback"]

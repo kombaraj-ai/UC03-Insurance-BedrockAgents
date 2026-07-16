@@ -1,0 +1,86 @@
+openapi: 3.0.0
+info:
+  title: AutoClaim IQ Claims Management Service
+  version: "1.0.0"
+  description: >
+    APIs for initiating and checking the status of car insurance claims.
+    Backed by services/claims_handler against real DynamoDB records --
+    policyId is validated to exist and be ACTIVE before a claim is created.
+paths:
+  /claims:
+    post:
+      summary: File a new car insurance claim
+      description: >
+        Call this when the user wants to file a new claim after an
+        accident, and their policy has already been verified via
+        verifyAndRetrievePolicy.
+      operationId: createClaim
+      # Bedrock withholds this Lambda invocation until the end user
+      # explicitly confirms via the agent's confirmation round-trip -- verify
+      # the exact current key/casing against AWS docs at build time, this is
+      # a newer field.
+      x-requireConfirmation: ENABLED
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [policyId, accidentDate, description]
+              properties:
+                policyId:
+                  type: string
+                  description: The verified policy number, e.g. POL-998877.
+                accidentDate:
+                  type: string
+                  format: date
+                  description: Date of the accident (YYYY-MM-DD). Cannot be in the future.
+                description:
+                  type: string
+                  description: Brief description of how the accident occurred.
+      responses:
+        "200":
+          description: Claim successfully created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  outcome: { type: string }
+                  claimNumber: { type: string }
+                  status: { type: string }
+                  assignedAdjuster: { type: string }
+                  message: { type: string }
+        "404":
+          description: The referenced policy does not exist
+        "409":
+          description: The referenced policy exists but is not ACTIVE
+
+  /claims/{claimNumber}:
+    get:
+      summary: Get claim status
+      description: Call this when the user asks for an update on an existing claim.
+      operationId: getClaimStatus
+      parameters:
+        - name: claimNumber
+          in: path
+          required: true
+          description: The unique claim identifier (e.g., CLM-2026-000123)
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Claim details retrieved
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  outcome: { type: string }
+                  claimNumber: { type: string }
+                  status: { type: string }
+                  incidentDate: { type: string }
+                  adjusterId: { type: string }
+                  updatedAt: { type: string }
+        "404":
+          description: No claim found with that claim number

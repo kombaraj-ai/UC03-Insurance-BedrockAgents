@@ -1,0 +1,26 @@
+[
+  {
+    "claimNumber": "CLM-2026-000001",
+    "policyId": "POL-998877",
+    "claimStatus": "UNDER_REVIEW",
+    "incidentDate": "2026-06-20",
+    "incidentDescription": "Hail damage to hood and roof during a storm in the parking lot.",
+    "estimatedDamageAmount": 2400.00,
+    "adjusterId": "ADJ-002",
+    "createdAt": "2026-06-21T14:32:00Z",
+    "updatedAt": "2026-06-22T09:10:00Z",
+    "createdByUserSub": "seed-script"
+  },
+  {
+    "claimNumber": "CLM-2026-000002",
+    "policyId": "POL-55210",
+    "claimStatus": "APPROVED",
+    "incidentDate": "2026-05-02",
+    "incidentDescription": "Rear-ended at a stoplight, bumper and trunk damage.",
+    "estimatedDamageAmount": 3100.50,
+    "adjusterId": "ADJ-001",
+    "createdAt": "2026-05-03T08:15:00Z",
+    "updatedAt": "2026-05-10T16:45:00Z",
+    "createdByUserSub": "seed-script"
+  }
+]

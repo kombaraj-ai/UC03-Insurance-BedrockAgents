@@ -1,0 +1,33 @@
+# Terraform
+# NOTE: .terraform.lock.hcl is intentionally NOT ignored -- commit it so
+# `terraform init` resolves the same provider versions for everyone.
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+**/terraform.tfvars
+!**/terraform.tfvars.example
+**/.build/
+*.zip
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Scratch / reference material not part of the tracked project
+Archieve/

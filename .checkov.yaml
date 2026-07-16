@@ -1,0 +1,28 @@
+# Checkov config for `make checkov`. Skips below are deliberate, documented
+# scope trade-offs (see README.md "What's not built" / docs/decision-log.md)
+# -- not blanket suppressions. Re-review this list before a real production
+# launch.
+directory:
+  - infra
+
+skip-check:
+  # No VPC / no PrivateLink endpoints -- this is a fully serverless stack by
+  # design (see README "Security Review"). These checks assume a
+  # VPC-attached architecture that this project deliberately does not use.
+  - CKV_AWS_117 # Lambda should be in a VPC
+  - CKV_AWS_120 # API Gateway should have a VPC link (not applicable to HTTP APIs)
+
+  # DynamoDB/S3 use AWS-owned encryption keys, not customer-managed CMKs --
+  # only CloudWatch Logs get a dedicated CMK in this build. A stricter
+  # compliance posture would add CMKs everywhere; flagged, not silently
+  # dropped.
+  - CKV_AWS_119 # DynamoDB should use CMK
+  - CKV_AWS_145 # S3 should use CMK
+
+  # No WAF in front of API Gateway in this build -- JWT auth + throttling is
+  # the only defense against abuse. Flagged in README as the natural next
+  # hardening step.
+  - CKV_AWS_192 # API Gateway should be associated with WAF
+
+compact: true
+quiet: false

@@ -1,0 +1,72 @@
+[
+  {
+    "policyId": "POL-998877",
+    "lastName": "Smith",
+    "firstName": "John",
+    "vin": "1HGCM82633A004352",
+    "vehicleMake": "Honda",
+    "vehicleModel": "Accord",
+    "vehicleYear": 2021,
+    "coverageType": "COMPREHENSIVE",
+    "policyStatus": "ACTIVE",
+    "effectiveDate": "2026-01-01",
+    "expirationDate": "2026-12-31",
+    "deductible": 500
+  },
+  {
+    "policyId": "POL-12345",
+    "lastName": "Smith",
+    "firstName": "Jane",
+    "vin": "5YJ3E1EA7KF317000",
+    "vehicleMake": "Tesla",
+    "vehicleModel": "Model 3",
+    "vehicleYear": 2022,
+    "coverageType": "COMPREHENSIVE",
+    "policyStatus": "ACTIVE",
+    "effectiveDate": "2026-02-15",
+    "expirationDate": "2027-02-14",
+    "deductible": 500
+  },
+  {
+    "policyId": "POL-55210",
+    "lastName": "Alvarez",
+    "firstName": "Maria",
+    "vin": "3FA6P0H74HR123456",
+    "vehicleMake": "Ford",
+    "vehicleModel": "Fusion",
+    "vehicleYear": 2019,
+    "coverageType": "COLLISION",
+    "policyStatus": "ACTIVE",
+    "effectiveDate": "2025-11-01",
+    "expirationDate": "2026-10-31",
+    "deductible": 1000
+  },
+  {
+    "policyId": "POL-30044",
+    "lastName": "Chen",
+    "firstName": "Wei",
+    "vin": "1N4AL3AP0JC123456",
+    "vehicleMake": "Nissan",
+    "vehicleModel": "Altima",
+    "vehicleYear": 2020,
+    "coverageType": "COMPREHENSIVE",
+    "policyStatus": "LAPSED",
+    "effectiveDate": "2024-06-01",
+    "expirationDate": "2025-05-31",
+    "deductible": 500
+  },
+  {
+    "policyId": "POL-71190",
+    "lastName": "Okafor",
+    "firstName": "Amara",
+    "vin": "2T1BURHE0JC123456",
+    "vehicleMake": "Toyota",
+    "vehicleModel": "Corolla",
+    "vehicleYear": 2023,
+    "coverageType": "COLLISION",
+    "policyStatus": "ACTIVE",
+    "effectiveDate": "2026-03-01",
+    "expirationDate": "2027-02-28",
+    "deductible": 500
+  }
+]
